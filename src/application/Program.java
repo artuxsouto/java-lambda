@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Locale;
 
 import entities.Product;
+import util.UpdatePrice;
 
 public class Program {
 
@@ -22,10 +23,8 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 			
-		list.removeIf(p -> p.getPrice() >= 100.0);
+		list.forEach(new UpdatePrice());
 		
-		for (Product i : list) {
-			System.out.println(i);
-		}
+		list.forEach(System.out::println);
 	}
 }
